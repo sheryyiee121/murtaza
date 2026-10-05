@@ -212,6 +212,8 @@ export default function Pricing() {
           border: 1px solid #222;
           background: transparent;
           color: #fff;
+          text-decoration: none;
+          display: block;
         }
 
         .card-btn:hover {
@@ -290,7 +292,14 @@ export default function Pricing() {
 
               {plan.note && <p className="card-note">{plan.note}</p>}
 
-              <button className="card-btn">{plan.buttonText}</button>
+              <a
+                href={`https://wa.me/447393653591?text=Hello,%20I%20want%20to%20buy%20the%20${plan.name}%20plan`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-btn"
+              >
+                {plan.buttonText}
+              </a>
             </div>
           ))}
         </div>

@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FirestickIPTV.io - #1 Best IPTV Subscription for Firestick & Smart TVs",
-  description: "Get the best affordable IPTV subscription for Amazon Firestick, Smart TVs, Android, and iOS. Watch 28,000+ live TV channels, 150,000 VODs, 4K/8K sports and movies.",
-  keywords: "IPTV, Firestick IPTV, Best IPTV service, IPTV UK, IPTV USA, 4K IPTV, buy IPTV, IPTV subscription, IPTV provider, catchup TV, live sports IPTV, Fire TV Stick",
+  title: "FirestickIPTV.io - #1 Best IPTV Subscription in UK",
+  description: "Get the best IPTV subscription in UK at the best price. Premium Firestick IPTV UK provider with 28,000+ live TV channels, 150,000 VODs, Sky Glass, 4K/8K sports and movies without buffering.",
+  keywords: "best iptv subscription in uk, firestick iptv subscription in uk, iptv uk, best premium iptv uk, buy iptv uk, cheap iptv uk, best price iptv uk, reliable firestick iptv uk, 4k iptv subscription uk, top iptv providers uk, sky glass iptv uk, iptv smarters uk, tivimate iptv uk",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

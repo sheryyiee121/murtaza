@@ -9,7 +9,7 @@ const navLinks = [
   { label: "SETUP GUIDE", href: "/setup" },
   { label: "BLOG", href: "/blog" },
   { label: "FAQ", href: "/#faq" },
-  { label: "CONTACT US", href: "#contact" }
+  { label: "CONTACT US", href: "https://wa.me/447393653591?text=Hello,%20I%20have%20a%20question" }
 ];
 
 export default function Navbar() {
@@ -273,7 +273,7 @@ export default function Navbar() {
             >
               {navLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className={active === link.label ? "active" : ""} onClick={() => setActive(link.label)}>
+                  <a href={link.href} className={active === link.label ? "active" : ""} onClick={() => setActive(link.label)} {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                     {link.label}
                   </a>
                 </li>
@@ -281,7 +281,9 @@ export default function Navbar() {
             </motion.ul>
 
             <motion.a
-              href="#order"
+              href="https://wa.me/447393653591?text=Hello,%20I%20want%20to%20order%20an%20IPTV%20subscription"
+              target="_blank"
+              rel="noopener noreferrer"
               className="order-btn"
               animate={{
                 paddingTop: isScrolled ? '6px' : '9px',
@@ -305,11 +307,11 @@ export default function Navbar() {
           {menuOpen && (
             <div className="mobile-menu">
               {navLinks.map((link) => (
-                <a key={link.label} href={link.href} className={active === link.label ? "active" : ""} onClick={() => { setActive(link.label); setMenuOpen(false); }}>
+                <a key={link.label} href={link.href} className={active === link.label ? "active" : ""} onClick={() => { setActive(link.label); setMenuOpen(false); }} {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                   {link.label}
                 </a>
               ))}
-              <a href="#order" className="mobile-order-btn">ORDER NOW</a>
+              <a href="https://wa.me/447393653591?text=Hello,%20I%20want%20to%20order%20an%20IPTV%20subscription" target="_blank" rel="noopener noreferrer" className="mobile-order-btn">ORDER NOW</a>
             </div>
           )}
         </motion.nav>

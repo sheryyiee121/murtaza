@@ -3,27 +3,27 @@ import React from 'react';
 import Image from 'next/image';
 
 const bgSlides = [
-    { src: "https://image.tmdb.org/t/p/w300/qhb1qOilapbapxWQn9jtRCMwXJF.jpg", label: "TV 1" },
-    { src: "https://image.tmdb.org/t/p/w300/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg", label: "TV 2" },
-    { src: "https://image.tmdb.org/t/p/w300/f496cm9enuEsZkSPzCwnTESEK5s.jpg", label: "TV 3" },
-    { src: "https://image.tmdb.org/t/p/w300/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg", label: "TV 4" },
-    { src: "https://image.tmdb.org/t/p/w300/gPbM0MK8CP8A174rmUwGsADNYKD.jpg", label: "TV 5" },
-    { src: "https://image.tmdb.org/t/p/w300/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg", label: "TV 6" },
+  { src: "https://image.tmdb.org/t/p/w300/qhb1qOilapbapxWQn9jtRCMwXJF.jpg", label: "TV 1" },
+  { src: "https://image.tmdb.org/t/p/w300/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg", label: "TV 2" },
+  { src: "https://image.tmdb.org/t/p/w300/f496cm9enuEsZkSPzCwnTESEK5s.jpg", label: "TV 3" },
+  { src: "https://image.tmdb.org/t/p/w300/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg", label: "TV 4" },
+  { src: "https://image.tmdb.org/t/p/w300/gPbM0MK8CP8A174rmUwGsADNYKD.jpg", label: "TV 5" },
+  { src: "https://image.tmdb.org/t/p/w300/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg", label: "TV 6" },
 ];
 
 const streamingLogos = [
-    { name: "Prime Video", bg: "#00A8E0", text: "prime\nvideo", textColor: "#fff" },
-    { name: "Apple TV+", bg: "#000", text: "Apple TV+", textColor: "#fff" },
-    { name: "Disney+", bg: "#00338d", text: "Disney+", textColor: "#fff" },
-    { name: "HBO", bg: "#000", text: "HBO", textColor: "#fff" },
-    { name: "Hulu", bg: "#1CE783", text: "hulu", textColor: "#fff" },
-    { name: "Netflix", bg: "#E50914", text: "NETFLIX", textColor: "#fff" }
+  { name: "Prime Video", bg: "#00A8E0", text: "prime\nvideo", textColor: "#fff" },
+  { name: "Apple TV+", bg: "#000", text: "Apple TV+", textColor: "#fff" },
+  { name: "Disney+", bg: "#00338d", text: "Disney+", textColor: "#fff" },
+  { name: "HBO", bg: "#000", text: "HBO", textColor: "#fff" },
+  { name: "Hulu", bg: "#1CE783", text: "hulu", textColor: "#fff" },
+  { name: "Netflix", bg: "#E50914", text: "NETFLIX", textColor: "#fff" }
 ];
 
 export default function Hero() {
-    return (
-        <>
-            <style>{`
+  return (
+    <>
+      <style>{`
         .hero {
           position: relative;
           width: 100%;
@@ -248,39 +248,39 @@ export default function Hero() {
           .hero-content { padding-top: 40px; }
         }
       `}</style>
-            <section className="hero">
-                <div className="bg-slider-wrapper" aria-hidden="true">
-                    <div className="bg-slider-track">
-                        {[...bgSlides, ...bgSlides, ...bgSlides, ...bgSlides, ...bgSlides, ...bgSlides].map((s, i) => (
-                            <img key={i} className="bg-slide-img" src={s.src} alt={s.label} />
-                        ))}
-                    </div>
-                </div>
-                <div className="hero-overlay" aria-hidden="true"></div>
-                <div className="hero-content">
-                    <p className="hero-badge">✦ FIRESTICK IPTV ✦</p>
-                    <h1 className="hero-title">
-                        The Best <span className="highlight">Firestick IPTV</span> Subscription Service
-                    </h1>
-                    <p className="hero-sub">
-                        Enjoy your time with excellent image clarity up to 4K, on any device, anytime and anywhere, with over +22,000 channels, +150,000 VOD and uptime 100%
-                    </p>
-                    <div className="hero-buttons">
-                        <a href="#pricing" className="btn-primary">GET STARTED</a>
-                        <a href="#trial" className="btn-secondary">24 HOURS TRIAL</a>
-                    </div>
-                </div>
-                <div className="device-mockup">
-                    <Image src="/images/image.png" alt="IPTV Smarters running on TV, laptop and phone" width={760} height={500} priority style={{ width: "100%", height: "auto" }} />
-                </div>
-                <div className="streaming-bar">
-                    {streamingLogos.map((logo) => (
-                        <div key={logo.name} className="streaming-logo" style={{ background: logo.bg, color: logo.textColor }} title={logo.name}>
-                            {logo.text}
-                        </div>
-                    ))}
-                </div>
-            </section>
-        </>
-    );
+      <section className="hero">
+        <div className="bg-slider-wrapper" aria-hidden="true">
+          <div className="bg-slider-track">
+            {[...bgSlides, ...bgSlides, ...bgSlides, ...bgSlides, ...bgSlides, ...bgSlides].map((s, i) => (
+              <img key={i} className="bg-slide-img" src={s.src} alt={s.label} />
+            ))}
+          </div>
+        </div>
+        <div className="hero-overlay" aria-hidden="true"></div>
+        <div className="hero-content">
+          <p className="hero-badge">✦ FIRESTICK IPTV ✦</p>
+          <h1 className="hero-title">
+            The Best <span className="highlight">Firestick IPTV</span> Subscription Service
+          </h1>
+          <p className="hero-sub">
+            Enjoy your time with excellent image clarity up to 4K, on any device, anytime and anywhere, with over +22,000 channels, +150,000 VOD and uptime 100%
+          </p>
+          <div className="hero-buttons">
+            <a href="https://wa.me/447393653591?text=Hello,%20I%20want%20to%20subscribe%20to%20your%20IPTV%20service" target="_blank" rel="noopener noreferrer" className="btn-primary">GET STARTED</a>
+            <a href="https://wa.me/447393653591?text=Hello,%20I%20want%20a%2024%20hours%20trial" target="_blank" rel="noopener noreferrer" className="btn-secondary">24 HOURS TRIAL</a>
+          </div>
+        </div>
+        <div className="device-mockup">
+          <Image src="/images/image.png" alt="IPTV Smarters running on TV, laptop and phone" width={760} height={500} priority style={{ width: "100%", height: "auto" }} />
+        </div>
+        <div className="streaming-bar">
+          {streamingLogos.map((logo) => (
+            <div key={logo.name} className="streaming-logo" style={{ background: logo.bg, color: logo.textColor }} title={logo.name}>
+              {logo.text}
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  );
 }

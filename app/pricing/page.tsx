@@ -2,9 +2,9 @@ import React from 'react';
 import Pricing from '../components/Pricing';
 
 export const metadata = {
-    title: 'Pricing Plans - FirestickIPTV.io',
-    description: 'View our affordable IPTV subscription plans for Firestick, Smart TVs and more. Get 28,000+ channels in 4K/8K quality with zero buffering.',
-    keywords: 'IPTV pricing, cheap IPTV, Firestick IPTV cost, best IPTV packages, 4K IPTV subscription'
+    title: 'Best Price IPTV Subscription in UK | FirestickIPTV.io',
+    description: 'Find the best price for your firestick iptv subscription in UK. We offer the cheapest and most reliable IPTV packages with 28,000+ channels and anti-buffering tech.',
+    keywords: 'best price iptv uk, best iptv subscription in uk, firestick iptv subscription in uk, cheap iptv uk, iptv price uk, uk iptv plans, reliable uk iptv'
 };
 
 export default function PricingPage() {

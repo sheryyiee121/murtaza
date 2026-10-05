@@ -2,46 +2,46 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-    title: 'Blog & News - FirestickIPTV.io',
-    description: 'Read the latest news, guides, and tips about Firestick IPTV, streaming setups, and cord-cutting strategies.',
-    keywords: 'IPTV blog, Firestick tips, cord cutting, streaming guides, IPTV news'
+  title: 'Blog & News - FirestickIPTV.io | Best IPTV Subscription in UK',
+  description: 'Read the latest news, guides, and tips about Firestick IPTV, streaming setups, and finding the best iptv subscription in the UK.',
+  keywords: 'best iptv subscription in uk, iptv blog, firestick iptv subscription in uk, iptv news uk, iptv guides, buy iptv uk, premium iptv uk'
 };
 
 const blogs = [
-    {
-        id: 1,
-        title: 'How to Stop Buffering on Firestick IPTV',
-        date: 'October 1, 2026',
-        excerpt: 'Buffering can ruin movie night. Discover the top 5 ways to optimize your Fire TV Stick and router settings to guarantee a seamless 4K streaming experience.',
-        readTime: '4 min read'
-    },
-    {
-        id: 2,
-        title: 'Top 10 Must-Have Apps for Firestick in 2026',
-        date: 'September 24, 2026',
-        excerpt: 'Unlock the full potential of your Amazon Firestick. From Downloader to advanced VPNs, here are the essential applications you need to install right now.',
-        readTime: '6 min read'
-    },
-    {
-        id: 3,
-        title: 'TiviMate vs IPTV Smarters: Which is Better?',
-        date: 'September 15, 2026',
-        excerpt: 'We compare the two most popular IPTV players on the market. Learn which interface, recording features, and EPG systems perform best for live TV.',
-        readTime: '5 min read'
-    },
-    {
-        id: 4,
-        title: 'The Ultimate Guide to Cord-Cutting',
-        date: 'September 5, 2026',
-        excerpt: 'Tired of massive cable bills? Here is exactly how much money you can save by switching exclusively to an IPTV subscription and internet bundle.',
-        readTime: '8 min read'
-    }
+  {
+    id: 1,
+    title: 'How to Stop Buffering on Firestick IPTV',
+    date: 'October 1, 2026',
+    excerpt: 'Buffering can ruin movie night. Discover the top 5 ways to optimize your Fire TV Stick and router settings to guarantee a seamless 4K streaming experience.',
+    readTime: '4 min read'
+  },
+  {
+    id: 2,
+    title: 'Top 10 Must-Have Apps for Firestick in 2026',
+    date: 'September 24, 2026',
+    excerpt: 'Unlock the full potential of your Amazon Firestick. From Downloader to advanced VPNs, here are the essential applications you need to install right now.',
+    readTime: '6 min read'
+  },
+  {
+    id: 3,
+    title: 'TiviMate vs IPTV Smarters: Which is Better?',
+    date: 'September 15, 2026',
+    excerpt: 'We compare the two most popular IPTV players on the market. Learn which interface, recording features, and EPG systems perform best for live TV.',
+    readTime: '5 min read'
+  },
+  {
+    id: 4,
+    title: 'The Ultimate Guide to Cord-Cutting',
+    date: 'September 5, 2026',
+    excerpt: 'Tired of massive cable bills? Here is exactly how much money you can save by switching exclusively to an IPTV subscription and internet bundle.',
+    readTime: '8 min read'
+  }
 ];
 
 export default function BlogPage() {
-    return (
-        <main style={{ background: "#000", minHeight: "100vh", paddingTop: "120px" }}>
-            <style>{`
+  return (
+    <main style={{ background: "#000", minHeight: "100vh", paddingTop: "120px" }}>
+      <style>{`
         .blog-container {
           max-width: 1200px;
           margin: 0 auto;
@@ -136,32 +136,32 @@ export default function BlogPage() {
           height: 16px;
         }
       `}</style>
-            <div className="blog-container">
-                <div className="blog-header">
-                    <h1 className="blog-title">Firestick IPTV Blog</h1>
-                    <p className="blog-subtitle">Latest news, streaming tips, and technical guides.</p>
-                </div>
+      <div className="blog-container">
+        <div className="blog-header">
+          <h1 className="blog-title">Firestick IPTV Blog</h1>
+          <p className="blog-subtitle">Latest news, streaming tips, and technical guides.</p>
+        </div>
 
-                <div className="blog-grid">
-                    {blogs.map((blog) => (
-                        <div className="blog-card" key={blog.id}>
-                            <div className="blog-meta">
-                                <span>{blog.date}</span>
-                                <span>{blog.readTime}</span>
-                            </div>
-                            <h2 className="blog-card-title">{blog.title}</h2>
-                            <p className="blog-card-excerpt">{blog.excerpt}</p>
-                            <Link href="#" className="blog-read-more">
-                                Read Article
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
-                            </Link>
-                        </div>
-                    ))}
-                </div>
+        <div className="blog-grid">
+          {blogs.map((blog) => (
+            <div className="blog-card" key={blog.id}>
+              <div className="blog-meta">
+                <span>{blog.date}</span>
+                <span>{blog.readTime}</span>
+              </div>
+              <h2 className="blog-card-title">{blog.title}</h2>
+              <p className="blog-card-excerpt">{blog.excerpt}</p>
+              <Link href={`/blog/${blog.id}`} className="blog-read-more">
+                Read Article
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </Link>
             </div>
-        </main>
-    );
+          ))}
+        </div>
+      </div>
+    </main>
+  );
 }
