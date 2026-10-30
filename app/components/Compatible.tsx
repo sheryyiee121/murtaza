@@ -1,4 +1,3 @@
-"use client";
 import React from 'react';
 import Image from 'next/image';
 
@@ -79,14 +78,21 @@ export default function Compatible() {
                 <div className="compatible-container">
                     <div className="compatible-text">
                         <h2 className="compatible-title">
-                            COMPATIBLE WITH ALL<br />DEVICES.
+                            CHECK DEVICE<br />COMPATIBILITY.
                         </h2>
                         <p className="compatible-desc">
-                            Our <strong>Firestick IPTV</strong> service is compatible with all your devices, including Smart TVs, Android Box and Phone, Apple Devices, Amazon Fire Stick, KODI, and MAG Box. We literally support all kinds of devices, making <strong>Firestick IPTV</strong> the perfect choice for seamless streaming across any platform.
+                            Device support depends on the app, model, and subscription. Check the setup guide for available instructions and confirm compatibility with the service provider before subscribing.
                         </p>
                     </div>
                     <div className="compatible-image-wrapper">
-                        <img src="/images/image copy.png" alt="Compatible with all devices" loading="lazy" />
+                        <Image
+                            src="/images/image copy.png"
+                            alt="Illustration of streaming devices"
+                            width={700}
+                            height={450}
+                            sizes="(max-width: 900px) 100vw, 50vw"
+                            style={{ width: "100%", height: "auto" }}
+                        />
                     </div>
                 </div>
             </section>

@@ -1,4 +1,3 @@
-"use client";
 import React from 'react';
 
 export default function Features() {
@@ -111,7 +110,7 @@ export default function Features() {
           position: relative;
           box-shadow: 0 10px 20px rgba(0,0,0,0.5);
           overflow: hidden;
-          background-image: url('https://image.tmdb.org/t/p/w300/qhb1qOilapbapxWQn9jtRCMwXJF.jpg');
+          background: linear-gradient(135deg, #18385d, #0b111a);
           background-size: cover;
           background-position: center;
         }
@@ -132,7 +131,7 @@ export default function Features() {
           bottom: 10px;
           left: 10%;
           box-shadow: -5px 5px 15px rgba(0,0,0,0.6);
-          background-image: url('https://image.tmdb.org/t/p/w300/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg');
+          background: linear-gradient(135deg, #243e2b, #101510);
           background-size: cover;
           background-position: center;
         }
@@ -146,7 +145,7 @@ export default function Features() {
           bottom: 10px;
           right: 20%;
           box-shadow: 5px 5px 15px rgba(0,0,0,0.7);
-          background-image: url('https://image.tmdb.org/t/p/w200/f496cm9enuEsZkSPzCwnTESEK5s.jpg');
+          background: linear-gradient(135deg, #3f265f, #130e1a);
           background-size: cover;
           background-position: center;
         }
@@ -170,11 +169,11 @@ export default function Features() {
           overflow: hidden;
           border: 1px solid rgba(255,255,255,0.1);
         }
-        .poster img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
+        .poster:nth-child(1) { background: linear-gradient(160deg, #8b3c23, #191010); }
+        .poster:nth-child(2) { background: linear-gradient(160deg, #293d6a, #101321); }
+        .poster:nth-child(3) { background: linear-gradient(160deg, #47755c, #101712); }
+        .poster:nth-child(4) { background: linear-gradient(160deg, #704e80, #1a1120); }
+        .poster:nth-child(5) { background: linear-gradient(160deg, #947b3c, #1c1709); }
         .poster:nth-child(1) { transform: translateX(-80px) rotate(-15deg); z-index: 1; }
         .poster:nth-child(2) { transform: translateX(-40px) rotate(-8deg); z-index: 2; height: 115px; width: 75px; }
         .poster:nth-child(3) { transform: translateX(0) rotate(0deg); z-index: 3; height: 130px; width: 85px; }
@@ -225,9 +224,9 @@ export default function Features() {
                                 <div className="col c4">Life</div>
                             </div>
                         </div>
-                        <h3 className="feature-title">Thousands of Channels</h3>
+                        <h3 className="feature-title">Channel availability</h3>
                         <p className="feature-desc">
-                            We offer international IPTV channels from around the world, including all the major channels from Canada, United States, United Kingdom, and elsewhere.
+                            Channel availability depends on the selected plan, the provider’s rights, and your location. Review the current plan details before subscribing.
                         </p>
                     </div>
 
@@ -240,9 +239,9 @@ export default function Features() {
                                 <div className="mock-phone"></div>
                             </div>
                         </div>
-                        <h3 className="feature-title">All Devices</h3>
+                        <h3 className="feature-title">Device compatibility</h3>
                         <p className="feature-desc">
-                            Our IPTV works on all devices such as Smart TVs, Android, Roku, Formuler, FireStick, MAG, iOS, and any other device that supports M3U or portals.
+                            Device and app compatibility varies by plan and model. Check the setup guide or confirm compatibility with support before subscribing.
                         </p>
                     </div>
 
@@ -250,16 +249,16 @@ export default function Features() {
                     <div className="feature-card">
                         <div className="card-graphic">
                             <div className="graphic-3">
-                                <div className="poster"><img src="https://image.tmdb.org/t/p/w200/qhb1qOilapbapxWQn9jtRCMwXJF.jpg" alt="poster" /></div>
-                                <div className="poster"><img src="https://image.tmdb.org/t/p/w200/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" alt="poster" /></div>
-                                <div className="poster"><img src="https://image.tmdb.org/t/p/w200/f496cm9enuEsZkSPzCwnTESEK5s.jpg" alt="poster" /></div>
-                                <div className="poster"><img src="https://image.tmdb.org/t/p/w200/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" alt="poster" /></div>
-                                <div className="poster"><img src="https://image.tmdb.org/t/p/w200/gPbM0MK8CP8A174rmUwGsADNYKD.jpg" alt="poster" /></div>
+                                <div className="poster" />
+                                <div className="poster" />
+                                <div className="poster" />
+                                <div className="poster" />
+                                <div className="poster" />
                             </div>
                         </div>
-                        <h3 className="feature-title">Sports | VOD & Catchup</h3>
+                        <h3 className="feature-title">Content and features</h3>
                         <p className="feature-desc">
-                            The best IPTV solution at the best price - watch your favorite movies and TV shows in 4K/Full HD. Tune in for the biggest matches and PPV events.
+                            Available programmes, video quality, and catch-up features depend on the service and subscription. Confirm what is included in your chosen plan.
                         </p>
                     </div>
                 </div>

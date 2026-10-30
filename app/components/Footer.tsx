@@ -1,4 +1,3 @@
-"use client";
 import React from 'react';
 import Link from 'next/link';
 
@@ -182,7 +181,7 @@ export default function Footer() {
               <span className="dot-io">.io</span>
             </Link>
             <p className="footer-desc">
-              The #1 premium IPTV provider offering seamless 4K/8K streaming across all your devices. Drop the cable box today.
+              Review plan details, device compatibility, and service terms before subscribing.
             </p>
           </div>
 
@@ -220,9 +219,9 @@ export default function Footer() {
             © {new Date().getFullYear()} Firestick IPTV. All rights reserved.
           </div>
           <div className="legal">
-            <Link href="#terms">Terms and Conditions</Link>
-            <Link href="#privacy">Privacy Policy</Link>
-            <Link href="#refund">Refund Policy</Link>
+            <a href="https://wa.me/447393653591?text=Please%20send%20me%20the%20terms%20and%20conditions" target="_blank" rel="noopener noreferrer">Request Terms</a>
+            <a href="https://wa.me/447393653591?text=Please%20send%20me%20your%20privacy%20information" target="_blank" rel="noopener noreferrer">Request Privacy Information</a>
+            <a href="https://wa.me/447393653591?text=Please%20send%20me%20your%20refund%20policy" target="_blank" rel="noopener noreferrer">Request Refund Policy</a>
           </div>
         </div>
       </footer>

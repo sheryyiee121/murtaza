@@ -1,4 +1,3 @@
-"use client";
 import React from 'react';
 
 const plans = [
@@ -8,8 +7,7 @@ const plans = [
     price: '£19',
     duration: '1 Month Subscription',
     features: [
-      'HD + 4K Streaming',
-      '28,000+ Channels',
+      'HD/4K playback, if supported by the stream and device',
       '2 Devices',
       'Firestick Compatible'
     ],
@@ -17,52 +15,41 @@ const plans = [
   },
   {
     id: 'standard',
-    badge: 'Most Popular',
     name: 'Standard',
     price: '£49',
     duration: '6 Months Subscription',
     highlighted: true,
     features: [
-      '4K + 8K Streaming',
-      '28,000+ Channels',
+      'HD/4K playback, if supported by the stream and device',
       '3 Devices',
-      'Firestick + Sky Glass',
-      'Mobile Downloads'
+      'Fire TV Stick and compatible devices'
     ],
     buttonText: 'Subscribe Now'
   },
   {
     id: 'premium',
-    badge: 'Best Value',
     name: 'Premium',
     price: '£69',
     duration: '1 Year Subscription',
     features: [
-      '4K + 8K Ultra HD',
-      '28,000+ Channels',
+      'HD/4K playback, if supported by the stream and device',
       '5 Devices',
-      'Firestick + Sky Glass',
-      'Mobile Downloads',
+      'Fire TV Stick and compatible devices',
       'Priority Support'
     ],
-    note: '* Buy 1 year subscription — 2 months FREE',
     buttonText: 'Subscribe Now'
   },
   {
     id: 'ultimate',
-    badge: '8K Premium',
     name: 'Ultimate',
     price: '£89',
     duration: '1 Year Subscription',
     features: [
-      '8K Ultra HD Streaming',
-      '28,000+ Channels',
-      'Unlimited Devices',
-      'Firestick + Sky Glass + All TVs',
-      'VOD Library',
-      'VIP Support'
+      'HD/4K playback, if supported by the stream and device',
+      'Confirm device limits with the provider',
+      'Fire TV Stick and compatible devices',
+      'VOD availability depends on plan'
     ],
-    note: '* Best for Sky Glass & 8K TV owners',
     buttonText: 'Go Ultimate'
   }
 ];
@@ -85,6 +72,24 @@ export default function Pricing() {
           max-width: 1200px;
           margin: 0 auto;
           align-items: stretch;
+        }
+
+        .pricing-heading {
+          max-width: 760px;
+          margin: 0 auto 40px;
+          text-align: center;
+        }
+
+        .pricing-heading h2 {
+          color: #fff;
+          font-size: clamp(28px, 4vw, 42px);
+          margin: 0 0 12px;
+        }
+
+        .pricing-heading p {
+          color: #aaa;
+          line-height: 1.6;
+          margin: 0;
         }
 
         .pricing-card {
@@ -249,11 +254,13 @@ export default function Pricing() {
         }
       `}</style>
       <section className="pricing-section" id="pricing">
+        <div className="pricing-heading">
+          <h2>Firestick IPTV Plans</h2>
+          <p>Compare the advertised durations and prices. Confirm device limits, content availability, and renewal and refund terms with the provider.</p>
+        </div>
         <div className="pricing-grid">
           {plans.map((plan) => (
             <div key={plan.id} className={`pricing-card ${plan.highlighted ? 'highlighted' : ''}`}>
-              {plan.badge && <div className="card-badge">{plan.badge}</div>}
-
               <div className="card-icon">
                 {plan.id === 'basic' && (
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -290,8 +297,6 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              {plan.note && <p className="card-note">{plan.note}</p>}
-
               <a
                 href={`https://wa.me/447393653591?text=Hello,%20I%20want%20to%20buy%20the%20${plan.name}%20plan`}
                 target="_blank"
@@ -305,7 +310,7 @@ export default function Pricing() {
         </div>
 
         <div className="pricing-footer">
-          Works on: <span>Amazon Firestick • Fire TV Stick 4K • Sky Glass • Smart TVs • Android • iOS • Windows</span>
+          Check device support and content availability with the provider before subscribing.
         </div>
       </section >
     </div >

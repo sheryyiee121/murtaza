@@ -1,20 +1,21 @@
 "use client";
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const faqsLeft = [
-    { question: "How to watch IPTV Service?", answer: "Once you subscribe, you will receive an email with instructions on how to set up the IPTV service on your preferred device." },
-    { question: "Do you have problem?", answer: "If you face any issues, our dedicated technical support team is ready to assist you 24/7." },
-    { question: "What to do after paying?", answer: "After your payment is processed, check your email for confirmation and setup instructions. It usually takes just a few minutes." },
-    { question: "Does This Service (IPTV) Work In My Country?", answer: "Yes, our IPTV service is accessible worldwide. As long as you have a stable internet connection, you can watch it anywhere." },
-    { question: "What Kind Of Quality Service We Are Providing?", answer: "We provide SD, HD, 4K, and 8K streaming options across 28,000+ channels depending on your device capability and internet speed." }
+    { question: "How do I set up an IPTV app?", answer: "Check the setup guide for general instructions, then follow the official instructions for your device and chosen service." },
+    { question: "How can I get support?", answer: "Contact the provider using the WhatsApp link on this site and include your device model and a description of the issue." },
+    { question: "What happens after I subscribe?", answer: "Check the provider's confirmation and setup instructions, and contact support if they do not arrive." },
+    { question: "Is the service available in my country?", answer: "Availability, app access, and content rights can vary by country. Confirm regional availability with the provider before subscribing." },
+    { question: "What picture quality is available?", answer: "Picture quality depends on the plan, source stream, device, display, and internet connection. Check the current plan details." }
 ];
 
 const faqsRight = [
-    { question: "What is our Quality servers?", answer: "We offer top-notch quality servers with 99.99% uptime to ensure a smooth, buffer-free streaming experience." },
-    { question: "How long can I have subscription?", answer: "We offer various subscription lengths, ranging from 1 month up to 1 year, depending on the plan you choose." },
-    { question: "Do I Need A Satellite For Using IPTV?", answer: "No, you do not need a satellite dish. Our IPTV service is delivered entirely over your internet connection." },
-    { question: "What Internet Quality Should I Have?", answer: "We recommend a minimum internet speed of 15 Mbps for viewing standard content, and at least 30 Mbps for HD & 4K streaming." },
-    { question: "What Kind Of Devices Do You Support?", answer: "We support a wide range of devices including Amazon Firestick, Smart TVs, Android boxes, Apple devices, MAG boxes, and PCs." }
+    { question: "How reliable is the service?", answer: "Streaming reliability can vary with the service, network, device, and time of day. Ask the provider for current service information before subscribing." },
+    { question: "What subscription lengths are available?", answer: "The pricing page lists the currently advertised plan durations. Review the renewal and cancellation terms with the provider before paying." },
+    { question: "Do I need a satellite dish?", answer: "IPTV is delivered over an internet connection, so a satellite dish is not required for IPTV itself. You need a compatible device and app." },
+    { question: "What internet speed do I need?", answer: "Requirements vary by stream quality and simultaneous use. Check the service's recommendations and your device's network requirements." },
+    { question: "Which devices are supported?", answer: "Compatibility varies by app, model, and plan. Check the setup guide and confirm your exact device with the provider." }
 ];
 
 export default function FAQ() {
@@ -159,20 +160,12 @@ export default function FAQ() {
           transform: translateY(-2px);
         }
 
-        .faq-guarantee {
-          color: #fff;
-          font-size: 12px;
-          font-weight: 700;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          margin: 0;
-        }
       `}</style>
             <section className="faq-section" id="faq">
                 <div className="faq-container">
                     <div className="faq-header">
                         <p className="faq-subtitle">FAQ</p>
-                        <h2 className="faq-title">Frequently Ask Questions.</h2>
+                        <h2 className="faq-title">Frequently Asked Questions</h2>
                     </div>
 
                     <div className="faq-grid">
@@ -180,13 +173,19 @@ export default function FAQ() {
                         <div className="faq-col">
                             {faqsLeft.map((faq, index) => (
                                 <div key={index} className={`faq-item ${openLeft === index ? 'active' : ''}`}>
-                                    <button className="faq-question" onClick={() => toggleLeft(index)}>
+                                    <button
+                                        className="faq-question"
+                                        type="button"
+                                        aria-expanded={openLeft === index}
+                                        aria-controls={`faq-left-${index}`}
+                                        onClick={() => toggleLeft(index)}
+                                    >
                                         {faq.question}
-                                        <svg className="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <svg className="faq-icon" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                             <path d="M6 9l6 6 6-6" />
                                         </svg>
                                     </button>
-                                    <div className="faq-answer">
+                                    <div className="faq-answer" id={`faq-left-${index}`} aria-hidden={openLeft !== index}>
                                         <p>{faq.answer}</p>
                                     </div>
                                 </div>
@@ -197,13 +196,19 @@ export default function FAQ() {
                         <div className="faq-col">
                             {faqsRight.map((faq, index) => (
                                 <div key={index} className={`faq-item ${openRight === index ? 'active' : ''}`}>
-                                    <button className="faq-question" onClick={() => toggleRight(index)}>
+                                    <button
+                                        className="faq-question"
+                                        type="button"
+                                        aria-expanded={openRight === index}
+                                        aria-controls={`faq-right-${index}`}
+                                        onClick={() => toggleRight(index)}
+                                    >
                                         {faq.question}
-                                        <svg className="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <svg className="faq-icon" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                             <path d="M6 9l6 6 6-6" />
                                         </svg>
                                     </button>
-                                    <div className="faq-answer">
+                                    <div className="faq-answer" id={`faq-right-${index}`} aria-hidden={openRight !== index}>
                                         <p>{faq.answer}</p>
                                     </div>
                                 </div>
@@ -212,8 +217,7 @@ export default function FAQ() {
                     </div>
 
                     <div className="faq-footer">
-                        <button className="faq-cta-btn">Get Your IPTV Access</button>
-                        <p className="faq-guarantee">One Time Payment – Money Back Guarantee</p>
+                        <Link className="faq-cta-btn" href="/pricing">View plan details</Link>
                     </div>
                 </div >
             </section >

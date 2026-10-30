@@ -8,7 +8,7 @@ import FAQ from "./components/FAQ";
 
 export default function Home() {
   return (
-    <main style={{ background: "#000", minHeight: "100vh" }}>
+    <main id="main-content" style={{ background: "#000", minHeight: "100vh" }}>
       <Hero />
       <Sliders />
       <Features />

@@ -3,8 +3,11 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog & News - FirestickIPTV.io | Best IPTV Subscription in UK',
-  description: 'Read the latest news, guides, and tips about Firestick IPTV, streaming setups, and finding the best iptv subscription in the UK.',
+  title: 'Firestick IPTV UK Blog | Setup, Apps & Streaming Guides',
+  description: 'Read practical UK-focused guides to Fire TV Stick setup, streaming apps, service compatibility, and IPTV subscription checks.',
+  alternates: {
+    canonical: '/blog'
+  },
   keywords: [
     'best iptv subscription in uk',
     'iptv blog',
@@ -21,6 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Firestick IPTV Blog & UK Streaming Guides',
     description: 'Practical UK-focused guides to Firestick, streaming apps, and IPTV subscriptions.',
+    url: 'https://www.quicktvpackagess.co.uk/blog',
     locale: 'en_GB',
     type: 'website'
   }
@@ -31,28 +35,28 @@ const blogs = [
     id: 1,
     title: 'How to Stop Buffering on Firestick IPTV',
     date: 'October 1, 2026',
-    excerpt: 'Buffering can ruin movie night. Discover the top 5 ways to optimize your Fire TV Stick and router settings to guarantee a seamless 4K streaming experience.',
+    excerpt: 'Work through practical Wi-Fi, device, and app checks that may help diagnose buffering on a Fire TV Stick.',
     readTime: '4 min read'
   },
   {
     id: 2,
     title: 'Top 10 Must-Have Apps for Firestick in 2026',
     date: 'September 24, 2026',
-    excerpt: 'Unlock the full potential of your Amazon Firestick. From Downloader to advanced VPNs, here are the essential applications you need to install right now.',
+    excerpt: 'Learn how to find compatible Fire TV apps, check their publishers, and install them from official sources.',
     readTime: '6 min read'
   },
   {
     id: 3,
     title: 'TiviMate vs IPTV Smarters: Which is Better?',
     date: 'September 15, 2026',
-    excerpt: 'We compare the two most popular IPTV players on the market. Learn which interface, recording features, and EPG systems perform best for live TV.',
+    excerpt: 'Compare IPTV player interfaces and check current features, pricing, and device compatibility before choosing.',
     readTime: '5 min read'
   },
   {
     id: 4,
     title: 'The Ultimate Guide to Cord-Cutting',
     date: 'September 5, 2026',
-    excerpt: 'Tired of massive cable bills? Here is exactly how much money you can save by switching exclusively to an IPTV subscription and internet bundle.',
+    excerpt: 'Review your TV and streaming costs in the UK and compare legitimate, authorised services before changing packages.',
     readTime: '8 min read'
   },
   {
@@ -80,7 +84,7 @@ const blogs = [
 
 export default function BlogPage() {
   return (
-    <main style={{ background: "#000", minHeight: "100vh", paddingTop: "120px" }}>
+    <main id="main-content" style={{ background: "#000", minHeight: "100vh", paddingTop: "120px" }}>
       <style>{`
         .blog-container {
           max-width: 1200px;

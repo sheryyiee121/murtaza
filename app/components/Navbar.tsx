@@ -229,6 +229,7 @@ export default function Navbar() {
       <div className="navbar-wrapper">
         <motion.nav
           className="navbar"
+          aria-label="Main navigation"
           initial={false}
           animate={{
             width: isMobile ? 'calc(100% - 32px)' : (isScrolled ? '900px' : '1100px'),
@@ -297,7 +298,14 @@ export default function Navbar() {
               ORDER NOW
             </motion.a>
 
-            <button className="hamburger" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)}>
+            <button
+              className="hamburger"
+              type="button"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
               <span style={{ transform: menuOpen ? "rotate(45deg) translate(5px,5px)" : "none" }}></span>
               <span style={{ opacity: menuOpen ? 0 : 1 }}></span>
               <span style={{ transform: menuOpen ? "rotate(-45deg) translate(5px,-5px)" : "none" }}></span>
@@ -305,7 +313,7 @@ export default function Navbar() {
           </motion.div>
 
           {menuOpen && (
-            <div className="mobile-menu">
+            <div className="mobile-menu" id="mobile-navigation">
               {navLinks.map((link) => (
                 <a key={link.label} href={link.href} className={active === link.label ? "active" : ""} onClick={() => { setActive(link.label); setMenuOpen(false); }} {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                   {link.label}

@@ -1,23 +1,13 @@
-"use client";
 import React from 'react';
 import Image from 'next/image';
 
-const bgSlides = [
-  { src: "https://image.tmdb.org/t/p/w300/qhb1qOilapbapxWQn9jtRCMwXJF.jpg", label: "TV 1" },
-  { src: "https://image.tmdb.org/t/p/w300/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg", label: "TV 2" },
-  { src: "https://image.tmdb.org/t/p/w300/f496cm9enuEsZkSPzCwnTESEK5s.jpg", label: "TV 3" },
-  { src: "https://image.tmdb.org/t/p/w300/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg", label: "TV 4" },
-  { src: "https://image.tmdb.org/t/p/w300/gPbM0MK8CP8A174rmUwGsADNYKD.jpg", label: "TV 5" },
-  { src: "https://image.tmdb.org/t/p/w300/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg", label: "TV 6" },
-];
-
-const streamingLogos = [
-  { name: "Prime Video", bg: "#00A8E0", text: "prime\nvideo", textColor: "#fff" },
-  { name: "Apple TV+", bg: "#000", text: "Apple TV+", textColor: "#fff" },
-  { name: "Disney+", bg: "#00338d", text: "Disney+", textColor: "#fff" },
-  { name: "HBO", bg: "#000", text: "HBO", textColor: "#fff" },
-  { name: "Hulu", bg: "#1CE783", text: "hulu", textColor: "#fff" },
-  { name: "Netflix", bg: "#E50914", text: "NETFLIX", textColor: "#fff" }
+const deviceLabels = [
+  "Fire TV Stick",
+  "Smart TVs",
+  "Android",
+  "Apple devices",
+  "Windows",
+  "MAG devices"
 ];
 
 export default function Hero() {
@@ -54,18 +44,24 @@ export default function Hero() {
           animation: bgScrollLeft 50s linear infinite;
         }
 
-        .bg-slide-img {
+        .bg-slide {
           width: 250px;
           height: 350px;
           border-radius: 16px;
-          object-fit: cover;
+          background: linear-gradient(145deg, #121a2a, #172f49 48%, #080808);
           box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
         @keyframes bgScrollLeft {
           0% { transform: translateX(0); }
-          50% { transform: translateX(-25%); }
           100% { transform: translateX(-50%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .bg-slider-track,
+          .device-mockup img {
+            animation: none;
+          }
         }
 
         .hero-overlay {
@@ -251,8 +247,8 @@ export default function Hero() {
       <section className="hero">
         <div className="bg-slider-wrapper" aria-hidden="true">
           <div className="bg-slider-track">
-            {[...bgSlides, ...bgSlides, ...bgSlides, ...bgSlides, ...bgSlides, ...bgSlides].map((s, i) => (
-              <img key={i} className="bg-slide-img" src={s.src} alt={s.label} />
+            {[...deviceLabels, ...deviceLabels].map((label, i) => (
+              <div key={`${label}-${i}`} className="bg-slide" />
             ))}
           </div>
         </div>
@@ -260,23 +256,23 @@ export default function Hero() {
         <div className="hero-content">
           <p className="hero-badge">✦ FIRESTICK IPTV ✦</p>
           <h1 className="hero-title">
-            The Best <span className="highlight">Firestick IPTV</span> Subscription Service
+            <span className="highlight">Firestick IPTV</span> Plans & Setup Guides
           </h1>
           <p className="hero-sub">
-            Enjoy your time with excellent image clarity up to 4K, on any device, anytime and anywhere, with over +22,000 channels, +150,000 VOD and uptime 100%
+            Explore Firestick IPTV plans and setup guidance. Check each plan for current channel availability, video quality, supported devices, and service terms.
           </p>
           <div className="hero-buttons">
             <a href="https://wa.me/447393653591?text=Hello,%20I%20want%20to%20subscribe%20to%20your%20IPTV%20service" target="_blank" rel="noopener noreferrer" className="btn-primary">GET STARTED</a>
-            <a href="https://wa.me/447393653591?text=Hello,%20I%20want%20a%2024%20hours%20trial" target="_blank" rel="noopener noreferrer" className="btn-secondary">24 HOURS TRIAL</a>
+            <a href="https://wa.me/447393653591?text=Hello,%20is%20a%20trial%20currently%20available%3F" target="_blank" rel="noopener noreferrer" className="btn-secondary">ASK ABOUT A TRIAL</a>
           </div>
         </div>
         <div className="device-mockup">
           <Image src="/images/image.png" alt="IPTV Smarters running on TV, laptop and phone" width={760} height={500} priority style={{ width: "100%", height: "auto" }} />
         </div>
         <div className="streaming-bar">
-          {streamingLogos.map((logo) => (
-            <div key={logo.name} className="streaming-logo" style={{ background: logo.bg, color: logo.textColor }} title={logo.name}>
-              {logo.text}
+          {deviceLabels.map((label) => (
+            <div key={label} className="streaming-logo">
+              {label}
             </div>
           ))}
         </div>

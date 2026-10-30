@@ -16,29 +16,38 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.quicktvpackagess.co.uk"),
   title: "Firestick IPTV UK | Plans & Setup Guides - FirestickIPTV.io",
-  description: "Explore UK-focused Firestick IPTV plans, subscription information, and setup guides, with English-language streaming guidance for viewers in the USA and Western Europe.",
+  description: "UK-first Firestick IPTV pricing and setup guidance. Check regional availability, app compatibility, content, and provider terms before subscribing.",
   keywords: [
-    "best IPTV subscription UK",
     "Firestick IPTV UK",
     "IPTV packages UK",
     "IPTV subscription UK",
     "Fire TV Stick IPTV UK",
     "IPTV setup guide UK",
     "IPTV pricing UK",
-    "Firestick streaming guide USA",
-    "IPTV streaming USA",
-    "Firestick IPTV Europe",
-    "IPTV streaming Western Europe",
     "TiviMate setup UK",
     "IPTV Smarters UK"
   ],
+  alternates: {
+    canonical: "/"
+  },
   openGraph: {
     title: "Firestick IPTV UK | Plans & Setup Guides",
-    description: "UK-focused Firestick IPTV plans and setup guides, with English-language streaming guidance for viewers in the USA and Western Europe.",
+    description: "UK-first Firestick IPTV pricing and setup guidance. Check regional availability, app compatibility, content, and provider terms before subscribing.",
+    url: "https://www.quicktvpackagess.co.uk",
     locale: "en_GB",
     type: "website"
   },
+  twitter: {
+    card: "summary",
+    title: "Firestick IPTV UK | Plans & Setup Guides",
+    description: "UK-first Firestick IPTV pricing and setup guidance. Check regional availability, app compatibility, content, and provider terms before subscribing."
+  },
+  robots: {
+    index: true,
+    follow: true
+  }
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -48,6 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <a className="skip-link" href="#main-content">Skip to main content</a>
         <Navbar />
         {children}
         <Footer />

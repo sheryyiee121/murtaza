@@ -1,33 +1,21 @@
-"use client";
 import React from 'react';
 
 const movieSlides = [
-  { src: "https://image.tmdb.org/t/p/w300/qhb1qOilapbapxWQn9jtRCMwXJF.jpg", label: "Wonka" },
-  { src: "https://image.tmdb.org/t/p/w300/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg", label: "Barbie" },
-  { src: "https://image.tmdb.org/t/p/w300/f496cm9enuEsZkSPzCwnTESEK5s.jpg", label: "Friends" },
-  { src: "https://image.tmdb.org/t/p/w300/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg", label: "Oppenheimer" },
-  { src: "https://image.tmdb.org/t/p/w300/gPbM0MK8CP8A174rmUwGsADNYKD.jpg", label: "Shrek" },
-  { src: "https://image.tmdb.org/t/p/w300/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg", label: "The Batman" },
-  { src: "https://image.tmdb.org/t/p/w300/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg", label: "Spider-Man" },
-  { src: "https://image.tmdb.org/t/p/w300/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg", label: "The Marvels" }
-];
-
-const sportsSlides = [
-  { src: movieSlides[0].src, label: "CBS SPORTS" },
-  { src: movieSlides[1].src, label: "UFC PACK" },
-  { src: movieSlides[2].src, label: "beIN SPORTS" },
-  { src: movieSlides[3].src, label: "ESPN+ PACK" },
-  { src: movieSlides[4].src, label: "SPORTS PACK" },
-  { src: movieSlides[5].src, label: "Discovery" },
-  { src: movieSlides[6].src, label: "LA LIGA" },
-  { src: movieSlides[7].src, label: "DIRECTV SPORTS" }
+  { label: "Live TV" },
+  { label: "Movies" },
+  { label: "Series" },
+  { label: "Sports" },
+  { label: "News" },
+  { label: "Documentaries" },
+  { label: "Kids" },
+  { label: "Entertainment" }
 ];
 
 const stats = [
-  { value: "6 Years", sub: "In Business" },
-  { value: "+5,400", sub: "Clients" },
-  { value: "+150,000", sub: "Films & Series" },
-  { value: "+22,000", sub: "Channels" }
+  { value: "Compare", sub: "plan inclusions" },
+  { value: "Confirm", sub: "device compatibility" },
+  { value: "Review", sub: "subscription terms" },
+  { value: "Check", sub: "regional availability" }
 ];
 
 export default function Sliders() {
@@ -63,8 +51,10 @@ export default function Sliders() {
           animation: scrollLeft 40s linear infinite;
         }
 
-        .slider-track:hover {
-          animation-play-state: paused;
+        @media (prefers-reduced-motion: reduce) {
+          .slider-track {
+            animation: none !important;
+          }
         }
 
         @keyframes scrollRight {
@@ -87,7 +77,6 @@ export default function Sliders() {
           background: #111;
           border: 1px solid #222;
           transition: transform 0.3s, box-shadow 0.3s;
-          cursor: pointer;
         }
 
         .sport-card:hover {
@@ -137,10 +126,9 @@ export default function Sliders() {
           border-radius: 14px;
           overflow: hidden;
           position: relative;
-          background: #111;
+          background: linear-gradient(145deg, #142945, #101018 65%, #070707);
           border: 1px solid #1a1a1a;
           transition: transform 0.35s, box-shadow 0.35s;
-          cursor: pointer;
         }
 
         .movie-card:hover {
@@ -161,6 +149,20 @@ export default function Sliders() {
           inset: 0;
           background: linear-gradient(transparent 50%, rgba(0,0,0,0.7));
           pointer-events: none;
+        }
+
+        .movie-card-label {
+          position: absolute;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          color: #fff;
+          font-size: 15px;
+          font-weight: 800;
+          letter-spacing: 1px;
+          text-align: center;
+          text-transform: uppercase;
+          text-shadow: 0 2px 8px #000;
         }
 
         .stats-bar {
@@ -202,23 +204,19 @@ export default function Sliders() {
       `}</style>
       <section className="sliders-section">
         <div className="slider-track-wrapper">
-          <div className="slider-track scroll-right">
-            {[...movieSlides, ...movieSlides, ...movieSlides, ...movieSlides].map((m, i) => (
-              <div key={i} className="movie-card">
-                <img src={m.src} alt={m.label} loading="lazy" />
-              </div>
+          <div className="slider-track scroll-right" aria-hidden="true">
+            {[...movieSlides, ...movieSlides].map((m, i) => (
+              <div key={i} className="movie-card"><span className="movie-card-label">{m.label}</span></div>
             ))}
           </div>
         </div>
         <h2 className="vod-heading">
-          +150,000 <span>latest VOD</span> titles available
+          <span>Content availability</span> varies by plan and region
         </h2>
         <div className="slider-track-wrapper">
-          <div className="slider-track scroll-left">
-            {[...movieSlides, ...movieSlides, ...movieSlides, ...movieSlides].map((m, i) => (
-              <div key={i} className="movie-card">
-                <img src={m.src} alt={m.label} loading="lazy" />
-              </div>
+          <div className="slider-track scroll-left" aria-hidden="true">
+            {[...movieSlides, ...movieSlides].map((m, i) => (
+              <div key={i} className="movie-card"><span className="movie-card-label">{m.label}</span></div>
             ))}
           </div>
         </div>
