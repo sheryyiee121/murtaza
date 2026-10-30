@@ -1,10 +1,29 @@
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Blog & News - FirestickIPTV.io | Best IPTV Subscription in UK',
   description: 'Read the latest news, guides, and tips about Firestick IPTV, streaming setups, and finding the best iptv subscription in the UK.',
-  keywords: 'best iptv subscription in uk, iptv blog, firestick iptv subscription in uk, iptv news uk, iptv guides, buy iptv uk, premium iptv uk'
+  keywords: [
+    'best iptv subscription in uk',
+    'iptv blog',
+    'firestick iptv subscription in uk',
+    'iptv news uk',
+    'iptv guides',
+    'buy iptv uk',
+    'premium iptv uk',
+    'iptv sky glass firestick',
+    'firestick packages uk',
+    'sky glass iptv',
+    'iptv firestick'
+  ],
+  openGraph: {
+    title: 'Firestick IPTV Blog & UK Streaming Guides',
+    description: 'Practical UK-focused guides to Firestick, streaming apps, and IPTV subscriptions.',
+    locale: 'en_GB',
+    type: 'website'
+  }
 };
 
 const blogs = [
@@ -35,6 +54,27 @@ const blogs = [
     date: 'September 5, 2026',
     excerpt: 'Tired of massive cable bills? Here is exactly how much money you can save by switching exclusively to an IPTV subscription and internet bundle.',
     readTime: '8 min read'
+  },
+  {
+    id: 5,
+    title: 'Can You Get Sky Glass on Firestick? UK Compatibility Guide',
+    date: 'October 30, 2026',
+    excerpt: 'Understand the difference between Sky Glass and Fire TV Stick, what works together, and how to check for official streaming apps in the UK.',
+    readTime: '5 min read'
+  },
+  {
+    id: 6,
+    title: 'Firestick Packages UK: How to Compare Your Options',
+    date: 'October 30, 2026',
+    excerpt: 'A practical checklist for comparing Firestick packages, device compatibility, subscription terms, and licensed UK streaming services.',
+    readTime: '6 min read'
+  },
+  {
+    id: 7,
+    title: 'IPTV on Firestick: A Safe, Legal UK Setup Guide',
+    date: 'October 30, 2026',
+    excerpt: 'Learn what IPTV means, how to check whether a provider is authorised, and how to use official apps on a Fire TV Stick.',
+    readTime: '5 min read'
   }
 ];
 

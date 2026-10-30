@@ -16,15 +16,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FirestickIPTV.io - #1 Best IPTV Subscription in UK",
-  description: "Get the best IPTV subscription in UK at the best price. Premium Firestick IPTV UK provider with 28,000+ live TV channels, 150,000 VODs, Sky Glass, 4K/8K sports and movies without buffering.",
-  keywords: "best iptv subscription in uk, firestick iptv subscription in uk, iptv uk, best premium iptv uk, buy iptv uk, cheap iptv uk, best price iptv uk, reliable firestick iptv uk, 4k iptv subscription uk, top iptv providers uk, sky glass iptv uk, iptv smarters uk, tivimate iptv uk",
+  title: "Firestick IPTV UK | Plans & Setup Guides - FirestickIPTV.io",
+  description: "Explore UK-focused Firestick IPTV plans, subscription information, and setup guides, with English-language streaming guidance for viewers in the USA and Western Europe.",
+  keywords: [
+    "best IPTV subscription UK",
+    "Firestick IPTV UK",
+    "IPTV packages UK",
+    "IPTV subscription UK",
+    "Fire TV Stick IPTV UK",
+    "IPTV setup guide UK",
+    "IPTV pricing UK",
+    "Firestick streaming guide USA",
+    "IPTV streaming USA",
+    "Firestick IPTV Europe",
+    "IPTV streaming Western Europe",
+    "TiviMate setup UK",
+    "IPTV Smarters UK"
+  ],
+  openGraph: {
+    title: "Firestick IPTV UK | Plans & Setup Guides",
+    description: "UK-focused Firestick IPTV plans and setup guides, with English-language streaming guidance for viewers in the USA and Western Europe.",
+    locale: "en_GB",
+    type: "website"
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="en-GB"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
