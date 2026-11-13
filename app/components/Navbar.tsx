@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { whatsappUrl } from '../lib/site';
 
 const navLinks = [
   { label: "HOME", href: "/" },
@@ -9,7 +10,7 @@ const navLinks = [
   { label: "SETUP GUIDE", href: "/setup" },
   { label: "BLOG", href: "/blog" },
   { label: "FAQ", href: "/#faq" },
-  { label: "CONTACT US", href: "https://wa.me/447393653591?text=Hello,%20I%20have%20a%20question" }
+  { label: "CONTACT US", href: whatsappUrl("Hello, I have a question") }
 ];
 
 export default function Navbar() {
@@ -282,7 +283,7 @@ export default function Navbar() {
             </motion.ul>
 
             <motion.a
-              href="https://wa.me/447393653591?text=Hello,%20I%20want%20to%20order%20an%20IPTV%20subscription"
+              href={whatsappUrl("Hello, I want to order an IPTV subscription")}
               target="_blank"
               rel="noopener noreferrer"
               className="order-btn"
@@ -319,7 +320,7 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <a href="https://wa.me/447393653591?text=Hello,%20I%20want%20to%20order%20an%20IPTV%20subscription" target="_blank" rel="noopener noreferrer" className="mobile-order-btn">ORDER NOW</a>
+              <a href={whatsappUrl("Hello, I want to order an IPTV subscription")} target="_blank" rel="noopener noreferrer" className="mobile-order-btn">ORDER NOW</a>
             </div>
           )}
         </motion.nav>

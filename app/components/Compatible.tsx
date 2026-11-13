@@ -54,12 +54,23 @@ export default function Compatible() {
           position: relative;
         }
 
+        .compatible-image-wrapper::before {
+          content: '';
+          position: absolute;
+          inset: 12% 8%;
+          background: radial-gradient(circle, rgba(56, 189, 248, 0.28), transparent 68%);
+          filter: blur(18px);
+          pointer-events: none;
+        }
+
         .compatible-image-wrapper img {
           width: 100%;
           max-width: 700px;
           height: auto;
           object-fit: contain;
-          filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
+          filter: drop-shadow(0 24px 48px rgba(0,0,0,0.85)) saturate(1.15) contrast(1.08);
+          position: relative;
+          z-index: 1;
         }
 
         @media (max-width: 900px) {

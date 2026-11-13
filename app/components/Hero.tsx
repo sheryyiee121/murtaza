@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { whatsappUrl } from '../lib/site';
 
 const deviceLabels = [
   "Fire TV Stick",
@@ -8,6 +9,17 @@ const deviceLabels = [
   "Apple devices",
   "Windows",
   "MAG devices"
+];
+
+const heroPosters = [
+  "/images/carousel/live-tv.jpg",
+  "/images/carousel/movies.jpg",
+  "/images/carousel/series.jpg",
+  "/images/carousel/sports.jpg",
+  "/images/carousel/news.jpg",
+  "/images/carousel/docs.jpg",
+  "/images/carousel/kids.jpg",
+  "/images/carousel/entertainment.jpg"
 ];
 
 export default function Hero() {
@@ -48,8 +60,15 @@ export default function Hero() {
           width: 250px;
           height: 350px;
           border-radius: 16px;
-          background: linear-gradient(145deg, #121a2a, #172f49 48%, #080808);
+          overflow: hidden;
+          background: #0b0b0b;
           box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .bg-slide img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
 
         @keyframes bgScrollLeft {
@@ -185,13 +204,26 @@ export default function Hero() {
           display: flex;
           justify-content: center;
         }
-
+        .device-mockup::before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: 8%;
+          width: 70%;
+          height: 28%;
+          transform: translateX(-50%);
+          background: radial-gradient(circle, rgba(56,189,248,0.28), transparent 70%);
+          filter: blur(16px);
+          pointer-events: none;
+        }
         .device-mockup img {
           width: 100%;
           height: auto;
           object-fit: contain;
-          filter: drop-shadow(0 30px 60px rgba(0,0,0,0.9));
+          filter: drop-shadow(0 30px 60px rgba(0,0,0,0.9)) saturate(1.12) contrast(1.06);
           animation: floatDevice 4s ease-in-out infinite;
+          position: relative;
+          z-index: 1;
         }
 
         @keyframes floatDevice {
@@ -247,8 +279,10 @@ export default function Hero() {
       <section className="hero">
         <div className="bg-slider-wrapper" aria-hidden="true">
           <div className="bg-slider-track">
-            {[...deviceLabels, ...deviceLabels].map((label, i) => (
-              <div key={`${label}-${i}`} className="bg-slide" />
+            {[...heroPosters, ...heroPosters].map((src, i) => (
+              <div key={`${src}-${i}`} className="bg-slide">
+                <Image src={src} alt="" width={250} height={350} sizes="250px" />
+              </div>
             ))}
           </div>
         </div>
@@ -262,8 +296,8 @@ export default function Hero() {
             Explore Firestick IPTV plans and setup guidance. Check each plan for current channel availability, video quality, supported devices, and service terms.
           </p>
           <div className="hero-buttons">
-            <a href="https://wa.me/447393653591?text=Hello,%20I%20want%20to%20subscribe%20to%20your%20IPTV%20service" target="_blank" rel="noopener noreferrer" className="btn-primary">GET STARTED</a>
-            <a href="https://wa.me/447393653591?text=Hello,%20is%20a%20trial%20currently%20available%3F" target="_blank" rel="noopener noreferrer" className="btn-secondary">ASK ABOUT A TRIAL</a>
+            <a href={whatsappUrl("Hello, I want to subscribe to your IPTV service")} target="_blank" rel="noopener noreferrer" className="btn-primary">GET STARTED</a>
+            <a href={whatsappUrl("Hello, is a trial currently available?")} target="_blank" rel="noopener noreferrer" className="btn-secondary">ASK ABOUT A TRIAL</a>
           </div>
         </div>
         <div className="device-mockup">

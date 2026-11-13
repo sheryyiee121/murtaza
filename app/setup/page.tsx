@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { whatsappUrl } from '../lib/site';
 
 export const metadata: Metadata = {
   title: 'Firestick IPTV Setup Guide UK | Device Compatibility',
@@ -170,7 +171,7 @@ export default function SetupPage() {
         </section>
 
         <div className="setup-links">
-          Still having trouble? <a href="https://wa.me/447393653591" target="_blank" rel="noopener noreferrer">Chat with our support team</a> or check out our <Link href="/#faq">FAQ section</Link>.
+          Still having trouble? <a href={whatsappUrl("Hello, I need help with setup")} target="_blank" rel="noopener noreferrer">Chat with our support team</a> or check out our <Link href="/#faq">FAQ section</Link>.
         </div>
       </div>
     </main>

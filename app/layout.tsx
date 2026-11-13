@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import JsonLd from "./components/JsonLd";
+import { SITE_NAME, SITE_URL } from "./lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,9 +18,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.quicktvpackagess.co.uk"),
-  title: "Firestick IPTV UK | Plans & Setup Guides - FirestickIPTV.io",
-  description: "UK-first Firestick IPTV pricing and setup guidance. Check regional availability, app compatibility, content, and provider terms before subscribing.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} | Plans, Pricing & Setup Guides`,
+    template: `%s | ${SITE_NAME}`
+  },
+  description: "Compare Firestick IPTV UK plans, pricing, device compatibility, and setup guides. Confirm app support, content, and provider terms before you subscribe.",
   keywords: [
     "Firestick IPTV UK",
     "IPTV packages UK",
@@ -27,26 +32,44 @@ export const metadata: Metadata = {
     "IPTV setup guide UK",
     "IPTV pricing UK",
     "TiviMate setup UK",
-    "IPTV Smarters UK"
+    "IPTV Smarters UK",
+    "best IPTV for Firestick UK"
   ],
   alternates: {
     canonical: "/"
   },
   openGraph: {
-    title: "Firestick IPTV UK | Plans & Setup Guides",
-    description: "UK-first Firestick IPTV pricing and setup guidance. Check regional availability, app compatibility, content, and provider terms before subscribing.",
-    url: "https://www.quicktvpackagess.co.uk",
+    title: `${SITE_NAME} | Plans, Pricing & Setup Guides`,
+    description: "Compare Firestick IPTV UK plans, pricing, device compatibility, and setup guides before you subscribe.",
+    url: SITE_URL,
+    siteName: SITE_NAME,
     locale: "en_GB",
-    type: "website"
+    type: "website",
+    images: [
+      {
+        url: "/images/image.png",
+        width: 1200,
+        height: 630,
+        alt: "Firestick IPTV UK on TV, laptop and phone"
+      }
+    ]
   },
   twitter: {
-    card: "summary",
-    title: "Firestick IPTV UK | Plans & Setup Guides",
-    description: "UK-first Firestick IPTV pricing and setup guidance. Check regional availability, app compatibility, content, and provider terms before subscribing."
+    card: "summary_large_image",
+    title: `${SITE_NAME} | Plans, Pricing & Setup Guides`,
+    description: "Compare Firestick IPTV UK plans, pricing, device compatibility, and setup guides before you subscribe.",
+    images: ["/images/image.png"]
   },
   robots: {
     index: true,
-    follow: true
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
   }
 };
 
@@ -57,6 +80,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <JsonLd />
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <Navbar />
         {children}

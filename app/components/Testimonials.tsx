@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { whatsappUrl } from '../lib/site';
 
 export default function Testimonials() {
     return (
@@ -51,7 +52,7 @@ export default function Testimonials() {
                 </p>
                 <Link
                     className="support-link"
-                    href="https://wa.me/447393653591?text=Hello,%20I%20have%20a%20question%20about%20your%20plans"
+                    href={whatsappUrl("Hello, I have a question about your plans")}
                     target="_blank"
                     rel="noopener noreferrer"
                 >

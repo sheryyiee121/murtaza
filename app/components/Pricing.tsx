@@ -1,4 +1,5 @@
 import React from 'react';
+import { whatsappUrl } from '../lib/site';
 
 const plans = [
   {
@@ -298,7 +299,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href={`https://wa.me/447393653591?text=Hello,%20I%20want%20to%20buy%20the%20${plan.name}%20plan`}
+                href={whatsappUrl(`Hello, I want to buy the ${plan.name} plan`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="card-btn"

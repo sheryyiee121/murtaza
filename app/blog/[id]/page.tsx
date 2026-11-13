@@ -168,7 +168,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 
   return {
-    title: `${blog.title} | FirestickIPTV.io`,
+    title: blog.title,
     description: blog.description,
     keywords: blog.keywords,
     alternates: {

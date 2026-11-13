@@ -1,14 +1,17 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 const movieSlides = [
-  { label: "Live TV" },
-  { label: "Movies" },
-  { label: "Series" },
-  { label: "Sports" },
-  { label: "News" },
-  { label: "Documentaries" },
-  { label: "Kids" },
-  { label: "Entertainment" }
+  { label: "Live TV", src: "/images/carousel/live-tv.jpg" },
+  { label: "Movies", src: "/images/carousel/movies.jpg" },
+  { label: "Series", src: "/images/carousel/series.jpg" },
+  { label: "Sports", src: "/images/carousel/sports.jpg" },
+  { label: "News", src: "/images/carousel/news.jpg" },
+  { label: "Documentaries", src: "/images/carousel/docs.jpg" },
+  { label: "Kids", src: "/images/carousel/kids.jpg" },
+  { label: "Entertainment", src: "/images/carousel/entertainment.jpg" }
 ];
 
 const stats = [
@@ -17,6 +20,70 @@ const stats = [
   { value: "Review", sub: "subscription terms" },
   { value: "Check", sub: "regional availability" }
 ];
+
+function useMarquee(direction: 'left' | 'right', speed = 55) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let offset = 0;
+    let primed = false;
+    let frame = 0;
+    let last = performance.now();
+
+    const tick = (now: number) => {
+      const delta = Math.min(now - last, 48) / 1000;
+      last = now;
+      const loopWidth = el.scrollWidth / 3;
+      if (loopWidth > 0) {
+        if (!primed) {
+          offset = direction === 'right' ? -loopWidth : 0;
+          primed = true;
+        }
+        if (direction === 'left') {
+          offset -= speed * delta;
+          if (offset <= -loopWidth) offset += loopWidth;
+        } else {
+          offset += speed * delta;
+          if (offset >= 0) offset -= loopWidth;
+        }
+        el.style.transform = `translate3d(${offset}px, 0, 0)`;
+      }
+      frame = requestAnimationFrame(tick);
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [direction, speed]);
+
+  return ref;
+}
+
+function PosterCard({ src, label }: { src: string; label: string }) {
+  return (
+    <div className="movie-card">
+      <Image src={src} alt={label} width={340} height={500} sizes="170px" draggable={false} />
+      <span className="movie-card-label">{label}</span>
+    </div>
+  );
+}
+
+function MarqueeRow({ direction, speed }: { direction: 'left' | 'right'; speed: number }) {
+  const trackRef = useMarquee(direction, speed);
+  const loop = [...movieSlides, ...movieSlides, ...movieSlides];
+
+  return (
+    <div className="slider-track-wrapper">
+      <div ref={trackRef} className="slider-track">
+        {loop.map((m, i) => (
+          <PosterCard key={`${direction}-${i}`} src={m.src} label={m.label} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Sliders() {
   return (
@@ -41,68 +108,7 @@ export default function Sliders() {
           display: flex;
           gap: 16px;
           width: max-content;
-        }
-
-        .slider-track.scroll-right {
-          animation: scrollRight 35s linear infinite;
-        }
-
-        .slider-track.scroll-left {
-          animation: scrollLeft 40s linear infinite;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .slider-track {
-            animation: none !important;
-          }
-        }
-
-        @keyframes scrollRight {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-
-        @keyframes scrollLeft {
-          0%   { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
-        }
-
-        .sport-card {
-          flex-shrink: 0;
-          width: 160px;
-          height: 110px;
-          border-radius: 12px;
-          overflow: hidden;
-          position: relative;
-          background: #111;
-          border: 1px solid #222;
-          transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .sport-card:hover {
-          transform: scale(1.06);
-          box-shadow: 0 0 20px rgba(59,130,246,0.35);
-          border-color: #3b82f6;
-        }
-
-        .sport-card img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
-        .sport-card .card-label {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          padding: 6px 8px;
-          font-size: 10px;
-          font-weight: 800;
-          letter-spacing: 0.8px;
-          color: #fff;
-          background: linear-gradient(transparent, rgba(0,0,0,0.85));
-          text-align: center;
+          will-change: transform;
         }
 
         .vod-heading {
@@ -126,38 +132,33 @@ export default function Sliders() {
           border-radius: 14px;
           overflow: hidden;
           position: relative;
-          background: linear-gradient(145deg, #142945, #101018 65%, #070707);
+          background: #0b0b0b;
           border: 1px solid #1a1a1a;
-          transition: transform 0.35s, box-shadow 0.35s;
-        }
-
-        .movie-card:hover {
-          transform: scale(1.07);
-          box-shadow: 0 8px 30px rgba(59,130,246,0.3);
-          border-color: #3b82f6;
         }
 
         .movie-card img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          pointer-events: none;
         }
 
         .movie-card::after {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(transparent 50%, rgba(0,0,0,0.7));
+          background: linear-gradient(transparent 45%, rgba(0,0,0,0.78));
           pointer-events: none;
         }
 
         .movie-card-label {
           position: absolute;
-          inset: 0;
-          display: grid;
-          place-items: center;
+          left: 0;
+          right: 0;
+          bottom: 12px;
+          z-index: 1;
           color: #fff;
-          font-size: 15px;
+          font-size: 13px;
           font-weight: 800;
           letter-spacing: 1px;
           text-align: center;
@@ -197,29 +198,16 @@ export default function Sliders() {
         }
 
         @media (max-width: 640px) {
-          .sport-card { width: 130px; height: 90px; }
           .movie-card { width: 140px; height: 210px; }
           .stats-bar  { gap: 28px; }
         }
       `}</style>
       <section className="sliders-section">
-        <div className="slider-track-wrapper">
-          <div className="slider-track scroll-right" aria-hidden="true">
-            {[...movieSlides, ...movieSlides].map((m, i) => (
-              <div key={i} className="movie-card"><span className="movie-card-label">{m.label}</span></div>
-            ))}
-          </div>
-        </div>
+        <MarqueeRow direction="left" speed={70} />
         <h2 className="vod-heading">
           <span>Content availability</span> varies by plan and region
         </h2>
-        <div className="slider-track-wrapper">
-          <div className="slider-track scroll-left" aria-hidden="true">
-            {[...movieSlides, ...movieSlides].map((m, i) => (
-              <div key={i} className="movie-card"><span className="movie-card-label">{m.label}</span></div>
-            ))}
-          </div>
-        </div>
+        <MarqueeRow direction="right" speed={55} />
         <div className="stats-bar">
           {stats.map((s) => (
             <div key={s.sub} className="stat-item">

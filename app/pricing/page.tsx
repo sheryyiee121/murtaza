@@ -3,14 +3,14 @@ import Pricing from '../components/Pricing';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'IPTV Plans & Pricing UK | FirestickIPTV.io',
+    title: 'IPTV Plans & Pricing UK',
     description: 'Compare advertised Firestick IPTV plan prices and durations. Confirm device compatibility, content availability, renewal, and cancellation terms before subscribing.',
     keywords: ['IPTV plans UK', 'IPTV pricing UK', 'Firestick IPTV subscription UK', 'Fire TV Stick plans'],
     alternates: {
         canonical: '/pricing'
     },
     openGraph: {
-        title: 'IPTV Plans & Pricing UK | FirestickIPTV.io',
+        title: 'IPTV Plans & Pricing UK',
         description: 'Compare advertised Firestick IPTV plan prices and durations. Confirm device compatibility, content availability, renewal, and cancellation terms before subscribing.',
         url: 'https://www.quicktvpackagess.co.uk/pricing',
         locale: 'en_GB',

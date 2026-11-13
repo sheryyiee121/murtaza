@@ -1,4 +1,5 @@
 import React from 'react';
+import { whatsappUrl } from '../lib/site';
 
 export default function FloatingWhatsApp() {
     return (
@@ -34,7 +35,7 @@ export default function FloatingWhatsApp() {
         }
       `}</style>
             <a
-                href="https://wa.me/447393653591?text=Hello,%20I'm%20interested%20in%20your%20IPTV%20service"
+                href={whatsappUrl("Hello, I'm interested in your IPTV service")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="floating-wa"
